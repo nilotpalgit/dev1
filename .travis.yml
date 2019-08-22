@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before_install:
+  -docker build -t nhaImage -f Dockerfile.dev .
+script:
+  -docker run nhaImage npm run test -- -- coverage
